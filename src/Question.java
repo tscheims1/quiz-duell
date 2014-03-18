@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 
 public class Question {
@@ -12,8 +13,8 @@ public class Question {
 		this.answers = answers;
 		questionString = question;
 
-		
-		Collections.shuffle(this.answers); 
+		long seed = System.nanoTime();
+		Collections.shuffle(this.answers,new Random(seed)); 
 	}
 	
 	public String getDescription()
