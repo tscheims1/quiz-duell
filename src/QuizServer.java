@@ -58,7 +58,7 @@ public class QuizServer {
 		Quiz duell = allDuells.get(number);
 			
 		if(duell == null)
-			return null;
+			return null; 
 		/*
 		 * is the current Player in this duell
 		 */
