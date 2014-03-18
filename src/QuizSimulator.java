@@ -20,7 +20,8 @@ public class QuizSimulator {
 		QuizServer quizServer = new QuizServer();
 		int currentState = LOGGED_OUT;
 		Player currentPlayer = null;
-		while(true)
+		Quiz currentQuiz = null;
+		while(currentState != QUIT)
 		{
 			this.drawMenu();
 			Scanner s  = new Scanner(System.in);
@@ -51,6 +52,18 @@ public class QuizSimulator {
 				}
 				else
 				{
+					System.out.println(quizServer.getAvailablePlayers(currentPlayer));
+					
+					input = s.next();
+					/*
+					 * TODO: Check this input
+					 */
+					currentQuiz = quizServer.createQuiz(currentPlayer, input);
+					if(currentQuiz == null)
+					{
+						System.out.println("Fehler beim Anlegen des Quizes");
+					}
+					
 					
 				}
 			}
@@ -78,7 +91,7 @@ public class QuizSimulator {
 			}
 			if(input.toLowerCase().equals("o"))
 			{
-				if(currentState != LOGGED_OUT)
+				if(currentState == LOGGED_OUT)
 				{
 					System.out.println("Sie sind bereits ausgeloggt");
 				}
@@ -87,11 +100,10 @@ public class QuizSimulator {
 					currentState = LOGGED_OUT;
 				}
 			}
-			if(input.toUpperCase().equals("q"))
+			if(input.toLowerCase().equals("q"))
 			{
 				currentState = QUIT;
 				s.close();
-				break;
 				
 			}
 		}

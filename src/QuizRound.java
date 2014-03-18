@@ -7,6 +7,10 @@ public class QuizRound {
 	QuizRound()
 	{
 		questions = new Question[ROUND_AMOUNT];
+		for(int i = 0; i < ROUND_AMOUNT; i++)
+		{
+			//questions[i] = new Question();
+		}
 		
 	}
 }

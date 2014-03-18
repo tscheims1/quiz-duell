@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -49,5 +50,12 @@ public class QuestionPool {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public Question getRandomQuestion()
+	{
+		Random randomGenerator = new Random();
+        int index = randomGenerator.nextInt(questions.size());
+        
+		return questions.get(index);
 	}
 }
