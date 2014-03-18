@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 
@@ -8,7 +9,10 @@ public class QuizSimulator {
 	 */
 	private static final int LOGGED_OUT  =0;
 	private static final int  LOGGED_IN =1;
+	private static final int IN_GAME = 3;
 	private static final int  QUIT = 2;
+	
+	private HashMap<String,Integer> keyMap;
 	
 	
 	public static void main(String [] args)
@@ -17,10 +21,18 @@ public class QuizSimulator {
 	}
 	QuizSimulator()
 	{
+		
 		QuizServer quizServer = new QuizServer();
 		int currentState = LOGGED_OUT;
 		Player currentPlayer = null;
 		Quiz currentQuiz = null;
+		
+		keyMap = new HashMap();
+		keyMap.put("a", 0);
+		keyMap.put("b", 1);
+		keyMap.put("c", 2);
+		keyMap.put("d", 3);
+		
 		while(currentState != QUIT)
 		{
 			this.drawMenu();
@@ -52,6 +64,8 @@ public class QuizSimulator {
 				}
 				else
 				{
+					
+						
 					System.out.println(quizServer.getAvailablePlayers(currentPlayer));
 					
 					input = s.next();
@@ -63,8 +77,24 @@ public class QuizSimulator {
 					{
 						System.out.println("Fehler beim Anlegen des Quizes");
 					}
+					else
+					{	currentState = IN_GAME;
 					
-					
+						while(currentState == IN_GAME)
+						{
+							System.out.println(currentQuiz.displayQuestion());
+							input = s.next();
+							input = input.toLowerCase();
+							if(keyMap.containsKey(input))
+							{
+								
+								System.out.println(currentQuiz.answerQuestion(keyMap.get(input)));
+							}
+							
+						
+						}
+						
+					}
 				}
 			}
 			if(input.toLowerCase().equals("c"))

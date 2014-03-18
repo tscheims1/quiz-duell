@@ -41,6 +41,10 @@ public class QuizServer {
 		}
 		return s;
 	}
+	public String getAvailableQuizes(Player currentPlayer)
+	{
+		return null;
+	}
 	public Quiz getQuiz(Player currentPlayer,int number)
 	{
 		Quiz duell = allDuells.get(number);

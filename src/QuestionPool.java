@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class QuestionPool {
 	
-	ArrayList<Question>questions;
+	private static ArrayList<Question>questions;
 	
 	QuestionPool()
 	{
-		questions = new ArrayList<Question>();
+		
 	}
 
 	void readQuestions()
 	{
+		questions = new ArrayList<Question>();
 		try {
 			FileReader fr = new FileReader("questions.txt");
 			
