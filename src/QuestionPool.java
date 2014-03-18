@@ -21,15 +21,18 @@ public class QuestionPool {
 			Scanner scanner = new Scanner(fr);
 			while(scanner.hasNext())
 			{
-				String s = scanner.next();
+				String s = scanner.nextLine();
 				/*
 				 * remove the "-tockens
 				 */
-				String [] answers = s.split(",");
+				System.out.println(s);
+				String [] answers = s.split("\",\"");
 				ArrayList<Answer> answerList = new ArrayList<Answer>();
-				for(int i = 0; i < 5;i++)
+				for(int i = 0; i < answers.length;i++)
 				{
-					answers[i] = answers[i].substring(1,answers[i].length()-1);
+					
+					answers[i] = answers[i].replaceAll("\"","");
+					System.out.println(answers[i]);
 					if(i != 0)
 					{
 						if(i == 1)

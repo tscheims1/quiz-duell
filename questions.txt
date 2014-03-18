@@ -1,1 +1,3 @@
 "Welches ist die Hauptstadt der Schweiz?","Bern","Zürich","Ostermundigen","Laupen"
+"Welches ist die Hauptstadt von Deutschland?","Berlin","Bonn","München","Düsseldorf"
+"Welches ist die Hauptstadt von Österreich?","Wien","Salzburg","Innsbruck","Tirol"
