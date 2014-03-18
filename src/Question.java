@@ -13,7 +13,7 @@ public class Question {
 		questionString = question;
 
 		
-		Collections.shuffle(this.answers);
+		Collections.shuffle(this.answers); 
 	}
 	
 	public String getDescription()
@@ -31,6 +31,17 @@ public class Question {
 	public boolean isRightAnswer(int number)
 	{
 		return answers.get(number).isAnswerCorrect();
+	}
+	public String getCorrectAnswer()
+	{
+		for(int i = 0; i < answers.size(); i++)
+		{
+			if(answers.get(i).isAnswerCorrect())
+			{
+				return "The correct Answer was "+ANSWER_LETTER[i];
+			}
+		}
+		return "";
 	}
 	
 	

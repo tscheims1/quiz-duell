@@ -46,7 +46,7 @@ public class Quiz {
 			
 		else
 		{
-			resp =  "wrong answer";
+			resp =  "wrong answer - "+quizRound[currentRound].getCorrectAnswer();
 		}
 		if(!quizRound[currentRound].nextQuestion())
 		{
