@@ -19,13 +19,16 @@ public class QuizSimulator {
 	{
 		QuizServer quizServer = new QuizServer();
 		int currentState = LOGGED_OUT;
+		Player currentPlayer = null;
 		while(true)
 		{
 			this.drawMenu();
 			Scanner s  = new Scanner(System.in);
 			String input = s.next();
 			
-			if(input.toLowerCase() == "i")
+			
+			
+			if(input.toLowerCase().equals("i"))
 			{
 				if(currentState == LOGGED_IN)
 				{
@@ -34,9 +37,13 @@ public class QuizSimulator {
 				else
 				{
 					currentState = LOGGED_IN;
+					System.out.println("Geben Sie den Usernamen ein");
+					input = s.next();
+					
+					currentPlayer = quizServer.getPlayer(input);
 				}
 			}
-			if(input.toLowerCase() == "n")
+			if(input.toLowerCase().equals("n"))
 			{
 				if(currentState != LOGGED_IN)
 				{
@@ -47,7 +54,7 @@ public class QuizSimulator {
 					
 				}
 			}
-			if(input.toLowerCase() == "c")
+			if(input.toLowerCase().equals("c"))
 			{
 				if(currentState != LOGGED_IN)
 				{
@@ -58,7 +65,7 @@ public class QuizSimulator {
 					
 				}
 			}
-			if(input.toLowerCase() == "d")
+			if(input.toLowerCase().equals("d"))
 			{
 				if(currentState != LOGGED_IN)
 				{
@@ -69,7 +76,7 @@ public class QuizSimulator {
 					
 				}
 			}
-			if(input.toLowerCase() == "o")
+			if(input.toLowerCase().equals("o"))
 			{
 				if(currentState != LOGGED_OUT)
 				{
@@ -80,10 +87,12 @@ public class QuizSimulator {
 					currentState = LOGGED_OUT;
 				}
 			}
-			if(input.toUpperCase() == "q")
+			if(input.toUpperCase().equals("q"))
 			{
 				currentState = QUIT;
+				s.close();
 				break;
+				
 			}
 		}
 	}
