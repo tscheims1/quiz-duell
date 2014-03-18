@@ -13,4 +13,16 @@ public class Player {
 	{
 		return name;
 	}
+	public void addScore()
+	{
+		score++;
+	}
+	public int getScore()
+	{
+		return score;
+	}
+	public String getDescription()
+	{
+		return this.name+ " - "+this.score;
+	}
 }

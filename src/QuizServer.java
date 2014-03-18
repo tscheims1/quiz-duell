@@ -43,7 +43,15 @@ public class QuizServer {
 	}
 	public String getAvailableQuizes(Player currentPlayer)
 	{
-		return null;
+		String s = "";
+		for(Quiz q : allDuells)
+		{
+			if(q.getPlayers()[0].getName().equals(currentPlayer.getName()) || 
+					q.getPlayers()[1].getName().equals(currentPlayer.getName()))
+			s += q.getDescription()+"\n";
+		
+		}
+		return s;
 	}
 	public Quiz getQuiz(Player currentPlayer,int number)
 	{
@@ -61,7 +69,7 @@ public class QuizServer {
 	}
 	public Quiz createQuiz(Player currentPlayer,String opponent)
 	{
-		Quiz q = new Quiz(currentPlayer,getPlayer(opponent));
+		Quiz q = new Quiz(new Player(currentPlayer.getName()),new Player(opponent));
 		allDuells.add(q);
 		return q;
 	}

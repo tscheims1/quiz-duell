@@ -24,4 +24,14 @@ public class QuizRound {
 	{
 		return questions[currentQuestion].isRightAnswer(number);
 	}
+	public boolean nextQuestion()
+	{
+		currentQuestion++;
+		if(currentQuestion >= ROUND_AMOUNT)
+		{
+			currentQuestion = 0;
+			return false;
+		}
+		return true;
+	}
 }

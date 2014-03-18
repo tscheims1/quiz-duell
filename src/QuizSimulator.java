@@ -78,22 +78,9 @@ public class QuizSimulator {
 						System.out.println("Fehler beim Anlegen des Quizes");
 					}
 					else
-					{	currentState = IN_GAME;
+					{	
+						currentState = IN_GAME;
 					
-						while(currentState == IN_GAME)
-						{
-							System.out.println(currentQuiz.displayQuestion());
-							input = s.next();
-							input = input.toLowerCase();
-							if(keyMap.containsKey(input))
-							{
-								
-								System.out.println(currentQuiz.answerQuestion(keyMap.get(input)));
-							}
-							
-						
-						}
-						
 					}
 				}
 			}
@@ -105,7 +92,18 @@ public class QuizSimulator {
 				}
 				else
 				{
+					System.out.println(quizServer.getAvailableQuizes(currentPlayer));
+					input = s.next();
+					input = input.toLowerCase();
 					
+					currentQuiz = quizServer.getQuiz(currentPlayer, Integer.parseInt(input));
+					if(currentQuiz == null)
+					{
+						System.out.println("Wrong Quiznumber");
+					}
+					{
+						currentState = IN_GAME;
+					}
 				}
 			}
 			if(input.toLowerCase().equals("d"))
@@ -116,7 +114,7 @@ public class QuizSimulator {
 				}
 				else
 				{
-					
+					System.out.println(quizServer.getAvailableQuizes(currentPlayer));
 				}
 			}
 			if(input.toLowerCase().equals("o"))
@@ -136,10 +134,37 @@ public class QuizSimulator {
 				s.close();
 				
 			}
+			while(currentState == IN_GAME)
+			{
+				if(!currentQuiz.isFinished() && currentQuiz.getCurrentPlayer().getName().equals(currentPlayer.getName()))
+				{
+					System.out.println(currentQuiz.displayQuestion());
+					input = s.next();
+					input = input.toLowerCase();
+					if(keyMap.containsKey(input))
+					{
+					
+						System.out.println(currentQuiz.answerQuestion(keyMap.get(input)));
+						System.out.println(currentQuiz.getCurrentPlayer().getName());
+					}
+				}
+				else
+				{
+					currentState = LOGGED_IN;
+				}
+				
+			
+			}
+			
 		}
+		
 	}
 	private void drawMenu()
 	{
 		System.out.println("Log (i)n (n)ew duell (c)ontinue duell (d)isplay duells log (o)ut (q)uit");
+	}
+	private void ingameLogic()
+	{
+		
 	}
 }

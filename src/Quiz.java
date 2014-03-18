@@ -6,6 +6,7 @@ public class Quiz {
 	private static final int MAX_ROUNDS = 6;
 	private int currentRound = 0;
 	private int currentPlayer = 0;
+	private boolean isFinished = false;
 	private QuizRound quizRound[];
 	
 	Quiz(Player a, Player b)
@@ -26,7 +27,7 @@ public class Quiz {
 	}
 	public String getDescription()
 	{
-		String s = "Duell: "+number+" "+players[0].getName()+" - "+players[1].getName()+" : Round: "+ currentRound +": PLAYER: "+(currentPlayer+1);
+		String s = "Duell: "+number+" "+players[0].getDescription()+" - "+players[1].getDescription()+" : Round: "+ currentRound +": PLAYER: "+(currentPlayer+1);
 		
 		return s;
 	}
@@ -36,14 +37,35 @@ public class Quiz {
 	}
 	public String answerQuestion(int number)
 	{
+		String resp  = "";
 		if(quizRound[currentRound].answerQuestion(number) == true)
-			return "Correct answer";
-		return "wrong answer";
+		{
+			resp =  "Correct answer";
+			players[currentPlayer].addScore();
+		}
+			
+		else
+		{
+			resp =  "wrong answer";
+		}
+		if(!quizRound[currentRound].nextQuestion())
+		{
+			
+			currentRound++;
+			currentPlayer = currentPlayer == 1 ? 0:1;
+			if(currentRound == MAX_ROUNDS )
+				isFinished = true;
+		}
+		return resp;
 			
 	}
 	public Player getCurrentPlayer()
 	{
 		return players[currentPlayer];
+	}
+	public boolean isFinished()
+	{
+		return this.isFinished;
 	}
 	
 }
