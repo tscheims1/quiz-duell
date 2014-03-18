@@ -6,11 +6,13 @@ public class Question {
 	private ArrayList<Answer> answers;
 	private String questionString;
 	
-	public Question()
+	public Question(String question,ArrayList<Answer> answers)
 	{
-		answers = new ArrayList<Answer>();
+		this.answers = answers;
+		questionString = question;
+
 		
-		Collections.shuffle(answers);
+		Collections.shuffle(this.answers);
 	}
 	
 	public String getDescription()
@@ -27,7 +29,7 @@ public class Question {
 	}
 	public boolean isRightAnswer(int number)
 	{
-		return false;
+		return answers.get(number).isAnswerCorrect();
 	}
 	
 	

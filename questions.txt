@@ -1,0 +1,1 @@
+"Welches ist die Hauptstadt der Schweiz?","Bern","Zürich","Ostermundigen","Laupen"

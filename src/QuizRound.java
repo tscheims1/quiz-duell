@@ -7,5 +7,6 @@ public class QuizRound {
 	QuizRound()
 	{
 		questions = new Question[ROUND_AMOUNT];
+		
 	}
 }
