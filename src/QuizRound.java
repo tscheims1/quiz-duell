@@ -7,7 +7,7 @@ public class QuizRound {
 	
 	QuizRound()
 	{
-		QuestionPool questionPool = new QuestionPool();
+		QuestionPool questionPool = QuestionPool.getInstance();
 		
 		questions = new Question[ROUND_AMOUNT];
 		for(int i = 0; i < ROUND_AMOUNT; i++)

@@ -10,7 +10,7 @@ public class QuizServer {
 	{
 		allDuells = new ArrayList<Quiz>();
 		availablePlayers = new ArrayList<Player>();
-		questionPool = new QuestionPool();
+		questionPool = QuestionPool.getInstance();
 		questionPool.readQuestions();
 	}
 	public Player getPlayer(String name)

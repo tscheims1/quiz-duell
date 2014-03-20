@@ -7,11 +7,20 @@ import java.util.Scanner;
 
 public class QuestionPool {
 	
-	private static ArrayList<Question>questions;
-	
-	QuestionPool()
+	private ArrayList<Question>questions;
+	private static QuestionPool instance;
+	private QuestionPool()
 	{
 		
+	}
+	
+	public static QuestionPool  getInstance()
+	{
+		if(instance == null)
+		{
+			instance = new QuestionPool();
+		}
+		return instance;
 	}
 
 	void readQuestions()
