@@ -8,12 +8,17 @@ import java.util.Scanner;
 public class QuestionPool {
 	
 	private ArrayList<Question>questions;
+	/**
+	 * static Object instance
+	 */
 	private static QuestionPool instance;
-	private QuestionPool()
-	{
-		
-	}
-	
+	/**
+	 * Private Constructor
+	 */
+	private QuestionPool(){}
+	/**
+	 * get Singleton Instance
+	 */
 	public static QuestionPool  getInstance()
 	{
 		if(instance == null)
@@ -36,14 +41,14 @@ public class QuestionPool {
 				/*
 				 * remove the "-tockens
 				 */
-				System.out.println(s);
+				//System.out.println(s);
 				String [] answers = s.split("\",\"");
 				ArrayList<Answer> answerList = new ArrayList<Answer>();
 				for(int i = 0; i < answers.length;i++)
 				{
 					
 					answers[i] = answers[i].replaceAll("\"","");
-					System.out.println(answers[i]);
+					//System.out.println(answers[i]);
 					if(i != 0)
 					{
 						if(i == 1)

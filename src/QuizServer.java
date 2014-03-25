@@ -31,7 +31,7 @@ public class QuizServer {
 	}
 	public String getAvailablePlayers(Player currentPlayer)
 	{
-		String s = "available Opponents\n";
+		String s =  "";
 		for(Player p: availablePlayers)
 		{
 			if(!currentPlayer.getName().equals(p.getName()))
@@ -69,6 +69,18 @@ public class QuizServer {
 	}
 	public Quiz createQuiz(Player currentPlayer,String opponent)
 	{
+		boolean correctOpponent = false;
+		for(Player p : availablePlayers)
+		{
+			if(p.getName().equals(opponent))
+			{
+				correctOpponent = true;
+				break;
+			}
+		}
+		
+		if(!correctOpponent)return null;
+		
 		Quiz q = new Quiz(new Player(currentPlayer.getName()),new Player(opponent));
 		allDuells.add(q);
 		return q;

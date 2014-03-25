@@ -25,7 +25,7 @@ public class QuizRound {
 		return questions[currentQuestion].isRightAnswer(number);
 	}
 	public String getCorrectAnswer()
-	{
+	{	
 		return questions[currentQuestion].getCorrectAnswer();
 		
 	}

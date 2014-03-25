@@ -65,8 +65,15 @@ public class QuizSimulator {
 				else
 				{
 					
-						
-					System.out.println(quizServer.getAvailablePlayers(currentPlayer));
+					System.out.println("Available opponents\n");	
+					String opponents = quizServer.getAvailablePlayers(currentPlayer);
+					
+					if(opponents.isEmpty())
+					{
+						System.out.println("no opponents available");
+						continue;
+					}
+					System.out.println(opponents);
 					
 					input = s.next();
 					/*
@@ -75,7 +82,7 @@ public class QuizSimulator {
 					currentQuiz = quizServer.createQuiz(currentPlayer, input);
 					if(currentQuiz == null)
 					{
-						System.out.println("Fehler beim Anlegen des Quizes");
+						System.out.println("Wrong opponent");
 					}
 					else
 					{	
@@ -92,15 +99,32 @@ public class QuizSimulator {
 				}
 				else
 				{
-					System.out.println(quizServer.getAvailableQuizes(currentPlayer));
+					String quizes = quizServer.getAvailableQuizes(currentPlayer);
+					
+					if(quizes.isEmpty())
+					{
+						System.out.println("no quizes available\n");
+						continue;
+					}
+					System.out.println(quizes);
 					input = s.next();
 					input = input.toLowerCase();
 					
+					try
+					{
 					currentQuiz = quizServer.getQuiz(currentPlayer, Integer.parseInt(input));
+					
+					}
+					catch(NumberFormatException e)
+					{
+						System.out.println("Input isnt a numnber");
+						continue;
+					}
 					if(currentQuiz == null)
 					{
-						System.out.println("Wrong Quiznumber");
+						System.out.println("you can't continue this quiz");
 					}
+					else
 					{
 						currentState = IN_GAME;
 					}
@@ -145,7 +169,7 @@ public class QuizSimulator {
 					{
 					
 						System.out.println(currentQuiz.answerQuestion(keyMap.get(input)));
-						System.out.println(currentQuiz.getCurrentPlayer().getName());
+						//System.out.println(currentQuiz.getCurrentPlayer().getName());
 					}
 				}
 				else
