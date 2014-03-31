@@ -45,12 +45,12 @@ public class QuizSimulator {
 			{
 				if(currentState == LOGGED_IN)
 				{
-					System.out.println("Sie sind bereits eingeloggt");
+					System.out.println("you are already logged in");
 				}
 				else
 				{
 					currentState = LOGGED_IN;
-					System.out.println("Geben Sie den Usernamen ein");
+					System.out.println("insert a name");
 					input = s.next();
 					
 					currentPlayer = quizServer.getPlayer(input);
@@ -60,7 +60,7 @@ public class QuizSimulator {
 			{
 				if(currentState != LOGGED_IN)
 				{
-					System.out.println("Sie müssen sich zuerst einloggen");
+					System.out.println("you must be logged in");
 				}
 				else
 				{
@@ -95,11 +95,11 @@ public class QuizSimulator {
 			{
 				if(currentState != LOGGED_IN)
 				{
-					System.out.println("Sie müssen sich zuerst einloggen");
+					System.out.println("you must be logged in");
 				}
 				else
 				{
-					String quizes = quizServer.getAvailableQuizes(currentPlayer);
+					String quizes = quizServer.getAvailableQuizes(currentPlayer,false);
 					
 					if(quizes.isEmpty())
 					{
@@ -134,18 +134,18 @@ public class QuizSimulator {
 			{
 				if(currentState != LOGGED_IN)
 				{
-					System.out.println("Sie müssen sich zuerst einloggen");
+					System.out.println("you must be logged in");
 				}
 				else
 				{
-					System.out.println(quizServer.getAvailableQuizes(currentPlayer));
+					System.out.println(quizServer.getAvailableQuizes(currentPlayer,false));
 				}
 			}
 			if(input.toLowerCase().equals("o"))
 			{
 				if(currentState == LOGGED_OUT)
 				{
-					System.out.println("Sie sind bereits ausgeloggt");
+					System.out.println("you already have been logged out");
 				}
 				else
 				{

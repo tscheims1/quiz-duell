@@ -41,12 +41,12 @@ public class QuizServer {
 		}
 		return s;
 	}
-	public String getAvailableQuizes(Player currentPlayer)
+	public String getAvailableQuizes(Player currentPlayer,boolean finishedQuizes)
 	{
 		String s = "";
 		for(Quiz q : allDuells)
 		{
-			if(q.getPlayers()[0].getName().equals(currentPlayer.getName()) || 
+			if(q.isFinished() == finishedQuizes && q.getPlayers()[0].getName().equals(currentPlayer.getName()) || 
 					q.getPlayers()[1].getName().equals(currentPlayer.getName()))
 			s += q.getDescription()+"\n";
 		
