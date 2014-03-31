@@ -55,6 +55,8 @@ public class QuizServer {
 	}
 	public Quiz getQuiz(Player currentPlayer,int number)
 	{
+		if ( number >= allDuells.size() || number < 0)
+			return null;
 		Quiz duell = allDuells.get(number);
 			
 		if(duell == null)

@@ -28,8 +28,21 @@ public class Quiz {
 	public String getDescription()
 	{
 		String s = "Duell: "+number+" "+players[0].getDescription()+" - "+players[1].getDescription()+" : Round: "+ currentRound +": PLAYER: "+(currentPlayer+1);
-		
-		return s;
+		if(this.isFinished == true)
+		{
+			s+= "FINISHED";
+			if(this.players[0].getScore() > this.players[1].getScore())
+			{
+				s += "Player 1 WON";
+			}
+			else if (this.players[0].getScore() > this.players[1].getScore())
+			{
+				s+= "Player 2 WON";
+			}
+			else
+				s+= "Game ends in a draw";
+		}
+			return s;
 	}
 	public String displayQuestion()
 	{

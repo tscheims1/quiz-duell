@@ -125,7 +125,7 @@ public class QuizSimulator {
 						System.out.println("you can't continue this quiz");
 					}
 					else
-					{
+					{ 
 						currentState = IN_GAME;
 					}
 				}
