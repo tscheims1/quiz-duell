@@ -27,20 +27,24 @@ public class Quiz {
 	}
 	public String getDescription()
 	{
-		String s = "Duell: "+number+" "+players[0].getDescription()+" - "+players[1].getDescription()+" : Round: "+ currentRound +": PLAYER: "+(currentPlayer+1);
+		String s = "Duell: "+number+" "+players[0].getDescription()+" - "+players[1].getDescription();
 		if(this.isFinished == true)
 		{
-			s+= "FINISHED";
+			s+= " : FINISHED";
 			if(this.players[0].getScore() > this.players[1].getScore())
 			{
-				s += "Player 1 WON";
+				s += " : "+this.players[0].getName()+" WON";
 			}
-			else if (this.players[0].getScore() > this.players[1].getScore())
+			else if (this.players[0].getScore() < this.players[1].getScore())
 			{
-				s+= "Player 2 WON";
+				s+= ": "+this.players[0].getName()+" WON";
 			}
 			else
-				s+= "Game ends in a draw";
+				s+= ": Game ends in a tie";
+		}
+		else
+		{
+			s+= " : Round: "+ currentRound +": PLAYER: "+(currentPlayer+1);
 		}
 			return s;
 	}

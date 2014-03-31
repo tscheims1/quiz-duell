@@ -47,7 +47,7 @@ public class QuizServer {
 		for(Quiz q : allDuells)
 		{
 			if(q.isFinished() == finishedQuizes && q.getPlayers()[0].getName().equals(currentPlayer.getName()) || 
-					q.getPlayers()[1].getName().equals(currentPlayer.getName()))
+					q.getPlayers()[1].getName().equals(currentPlayer.getName()) && q.isFinished() == finishedQuizes)
 			s += q.getDescription()+"\n";
 		
 		}

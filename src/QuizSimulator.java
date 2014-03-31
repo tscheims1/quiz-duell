@@ -138,7 +138,7 @@ public class QuizSimulator {
 				}
 				else
 				{
-					System.out.println(quizServer.getAvailableQuizes(currentPlayer,false));
+					System.out.println(quizServer.getAvailableQuizes(currentPlayer,true));
 				}
 			}
 			if(input.toLowerCase().equals("o"))

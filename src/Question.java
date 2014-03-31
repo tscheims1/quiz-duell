@@ -13,12 +13,14 @@ public class Question {
 		this.answers = answers;
 		questionString = question;
 
-		long seed = System.nanoTime();
-		Collections.shuffle(this.answers,new Random(seed)); 
+		 
 	}
 	
 	public String getDescription()
 	{
+		long seed = System.nanoTime();
+		Collections.shuffle(this.answers,new Random(seed));
+		
 		String s = "";
 		s += questionString+"\n";
 		int count = 0;
