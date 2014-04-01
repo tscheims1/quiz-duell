@@ -17,7 +17,7 @@ public class QuizSimulator {
 	
 	public static void main(String [] args)
 	{
-		QuizSimulator qs = new QuizSimulator();
+		new QuizSimulator();
 	}
 	QuizSimulator()
 	{
@@ -186,9 +186,5 @@ public class QuizSimulator {
 	private void drawMenu()
 	{
 		System.out.println("Log (i)n (n)ew duell (c)ontinue duell (d)isplay duells log (o)ut (q)uit");
-	}
-	private void ingameLogic()
-	{
-		
 	}
 }
