@@ -1,11 +1,29 @@
 import java.util.ArrayList;
 
-	
+/**
+ * this class provides all necessary methods for the quizSimulator class
+ * (e.g. add players, createQuizes, getAllAvailablePlayer)	
+ * @author James
+ *
+ */
 public class QuizServer {
-	ArrayList<Player> availablePlayers;
-	QuestionPool questionPool;
-	ArrayList<Quiz> allDuells;
 	
+	/**
+	 * all players are stored in this variable
+	 */
+	ArrayList<Player> availablePlayers;
+	
+	/**
+	 * a reference to the questionpool
+	 */
+	QuestionPool questionPool;
+	/**
+	 * all duells are stored here
+	 */
+	ArrayList<Quiz> allDuells;
+	/**
+	 * the constructor
+	 */
 	QuizServer()
 	{
 		allDuells = new ArrayList<Quiz>();
@@ -13,6 +31,12 @@ public class QuizServer {
 		questionPool = QuestionPool.getInstance();
 		questionPool.readQuestions();
 	}
+	/**
+	 * get a player, if the player dosent exists 
+	 * a new player is created
+	 * @param name
+	 * @return Player
+	 */
 	public Player getPlayer(String name)
 	{
 		for(Player p : availablePlayers)
@@ -23,12 +47,22 @@ public class QuizServer {
 		
 		return this.CreatePlayer(name);
 	}
+	/**
+	 * create a new player
+	 * @param name
+	 * @return Player
+	 */
 	private Player CreatePlayer(String name)
 	{
 		Player p = new Player(name);
 		availablePlayers.add(p);
 		return p;
 	}
+	/**
+	 * display  all available Players
+	 * @param currentPlayer
+	 * @return String
+	 */
 	public String getAvailablePlayers(Player currentPlayer)
 	{
 		String s =  "";
@@ -41,6 +75,12 @@ public class QuizServer {
 		}
 		return s;
 	}
+	/**
+	 * display all available Quizes
+	 * @param currentPlayer
+	 * @param finishedQuizes
+	 * @return String
+	 */
 	public String getAvailableQuizes(Player currentPlayer,boolean finishedQuizes)
 	{
 		String s = "";
@@ -53,6 +93,12 @@ public class QuizServer {
 		}
 		return s;
 	}
+	/**
+	 * get a Quiz reference, return null if the quiz doesnt exists
+	 * @param currentPlayer
+	 * @param number
+	 * @return Quiz
+	 */
 	public Quiz getQuiz(Player currentPlayer,int number)
 	{
 		if ( number >= allDuells.size() || number < 0)
@@ -69,6 +115,12 @@ public class QuizServer {
 		 	return duell;
 		return null;
 	}
+	/**
+	 * create a new quiz and return this quiz instance
+	 * @param currentPlayer
+	 * @param opponent
+	 * @return Quiz
+	 */
 	public Quiz createQuiz(Player currentPlayer,String opponent)
 	{
 		boolean correctOpponent = false;

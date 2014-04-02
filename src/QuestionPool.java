@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * this class represents the questionpool
+ * in this pool all question are stored
+ * @author James
+ *
+ */
 public class QuestionPool {
-	
+	/**
+	 * all questions are stored in this variable
+	 */
 	private ArrayList<Question>questions;
 	/**
 	 * static Object instance
@@ -27,7 +34,9 @@ public class QuestionPool {
 		}
 		return instance;
 	}
-
+	/**
+	 * this method read all questions from a csv file
+	 */
 	void readQuestions()
 	{
 		questions = new ArrayList<Question>();
@@ -66,6 +75,10 @@ public class QuestionPool {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * get a random question
+	 * @return Question
+	 */
 	public Question getRandomQuestion()
 	{
 		Random randomGenerator = new Random();

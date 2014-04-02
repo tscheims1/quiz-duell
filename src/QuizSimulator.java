@@ -1,10 +1,15 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+/**
+ * in this class is the entrypoint of the application
+ * this class handle the user input and provides a terminal
+ * @author James
+ *
+ */
 public class QuizSimulator {
 	
-	/*
+	/**
 	 * Set the sates of the simulator
 	 */
 	private static final int LOGGED_OUT  =0;
@@ -12,13 +17,23 @@ public class QuizSimulator {
 	private static final int IN_GAME = 3;
 	private static final int  QUIT = 2;
 	
+	/**
+	 * hash for converting Keys to integer
+	 */
 	private HashMap<String,Integer> keyMap;
 	
-	
+	/**
+	 * Entrypoint of the application
+	 * @param args
+	 */
 	public static void main(String [] args)
 	{
 		new QuizSimulator();
 	}
+	/**
+	 * Constructor 
+	 * the console logic is handled in this function 
+	 */
 	QuizSimulator()
 	{
 		
@@ -183,6 +198,9 @@ public class QuizSimulator {
 		}
 		
 	}
+	/**
+	 * Display the main menu
+	 */
 	private void drawMenu()
 	{
 		System.out.println("Log (i)n (n)ew duell (c)ontinue duell (d)isplay duells log (o)ut (q)uit");
