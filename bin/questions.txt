@@ -1,7 +1,0 @@
-"Welches ist die Hauptstadt der Schweiz?","Bern","Zürich","Ostermundigen","Laupen"
-"Welches ist die Hauptstadt von Deutschland?","Berlin","Bonn","München","Düsseldorf"
-"Welches ist die Hauptstadt von Österreich?","Wien","Salzburg","Innsbruck","Tirol"
-"Wieviel ergibt 2*(2-2)?","0","2","4","3.14"
-"Was ist Orange und ist in den Bergen anzutreffen?","Wanderine","Ein Wanderer","Steinböcke","Murmeltiere"
-"Wer schrieb 'Der Steppenwolf'","Herrmann Hesse","Georg Trakl","Friedrich Schiller","Martin Sutter"
-"Wieviel Höcker hat ein Kamel?","2","3","1.5","1"
